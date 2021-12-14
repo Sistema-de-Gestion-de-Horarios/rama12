@@ -4,11 +4,12 @@ import {useHistory} from 'react-router-dom';
 import AuthContext from "../store/auth-context";
 
 
+
 const emailReducer = (state, action) => {
     if (action.type === "USER_INPUT") {
         return {
             value: action.val,
-            isValid: true//action.val.includes("@gmail"),
+            isValid: true
         };
     }
     return {
@@ -45,8 +46,10 @@ const Login = (props) => {
     const handlerSubmit = (e) => { 
         e.preventDefault();
         if (email.isValid) {
-            ctx.onLogin(email.value, password);
-            history.push('/Pagina')
+            ctx.onLogin(email.value, password, () => {
+                history.push('/Pagina');
+            });
+            // 
         }
         else {
             console.log("email no valido");
@@ -55,13 +58,15 @@ const Login = (props) => {
     return (
         <Card>
             <form onSubmit ={handlerSubmit}>
-                <label>Email</label>
-                <input onChange={emailChangeHandler} />
+                <label>User</label>
+                <input type="text "  onChange={emailChangeHandler} />
                 <label>Password</label> 
                 <input type="password" onChange={passwordChangeHandler} />
                 <button>Login</button>
             </form>
+           
         </Card>
+        
     );
 };
 

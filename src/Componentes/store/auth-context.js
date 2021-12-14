@@ -1,24 +1,17 @@
-import {createContext, useState, useEffect} from "react";
+import {createContext, useState} from "react";
+import { UserResource } from "../../api/user";
 
 const AuthContext = createContext (null);
-
 export const AuthContextProvider = (props) => {
   const [authUser, setAuthUser] = useState(undefined);
-  const loginHandler = (email, password) => {
-    // console.log("pame");
-    // console.log(isAdministrativoIn);
-    // localStorage.removeItem("isAdministrativoIn");
-    
-    let user = {
-      name: email,
-      role: email
-    };
-    setAuthUser(user);
+  const loginHandler = (email, password, cb) => {
+    UserResource.login(email, password).then(resp => {
+      setAuthUser(resp.serverResponse.user);
+      cb();
+    }).catch(err => console.log(err));
   };
   const logoutHandler = () => {
-    // console.log("pame");
-    // console.log(isAdministrativoIn);
-    // localStorage.removeItem("isAdministrativoIn");
+   
     setAuthUser(undefined);
   };
   return (

@@ -1,23 +1,10 @@
-import React, {useState, useContext, Fragment} from "react";
-import Nave from "./Componentes/Navigation/Nave";
+import React, {useState, useContext} from "react";
 import Login from "./Componentes/LOGINADMIN/Login";
 import authCtx from "./Componentes/store/auth-context";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Docente from './view/Docente';
-import Ambiente from "./view/Admin/components/TabAmbientes/Ambiente";
-import Materia from "./view/Admin/components/TabMaterias/Materia";
-import Admin from './view/Admin';
 import Pagina from "./Pagina";
-import Estudiante from "./view/Admin/components/TabEstudiantes/Estudiante";
-import TabDocentes from './view/Admin/components/TabDocentes';
-import Listadocente from './view/Admin/components/TabDocentes/Listadocente';
-import TabAmbientes from "./view/Admin/components/TabAmbientes";
-import ListaAmbiente from "./view/Admin/components/TabAmbientes/ListaAmbiente";
-import TabMaterias from "./view/Admin/components/TabMaterias";
-import ListaMateria from "./view/Admin/components/TabMaterias/ListaMateria";
-import TabEstudiantes from "./view/Admin/components/TabEstudiantes";
-import ListaEstudiante from "./view/Admin/components/TabEstudiantes/ListaEstudiante";
 import Principal from "./Principal";
+import nave from "./Componentes/Navigation/Nave";
 
 function App() {
 	const ctx = useContext(authCtx);

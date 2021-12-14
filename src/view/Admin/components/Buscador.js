@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'element-react'
-import Listadocente from './TabDocentes/Listadocente';
-import Docente from './TabDocentes/Docente';
+// import Listadocente from './TabDocentes/Listadocente';
+// import Docente from './TabDocentes/Docente';
 function Buscador() {
 
 
